@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.TreeMap;
 public class Memory {
     TreeMap<Integer, Byte> map;
@@ -7,14 +8,13 @@ public class Memory {
     public Memory(TreeMap<Integer, Byte> mem){
         this.map = mem;
     }
-    public Memory(int size) throws MemorySizeInitializationException {
+    public Memory(int size) throws MemorySizeInitializationException, IOException {
         if(size == 0){
             throw new MemorySizeInitializationException("Memory size cannot be zero.");
         }
-        Byte b = new Byte();
         this.map = new TreeMap<Integer, Byte>();
         for(int i = 0; i<size; i++){
-            this.map.put(i, b);
+            this.map.put(i, new Byte());
         }
     }
     public Byte getByte(int offset) throws MemoryAddressDoesNotExistException{
@@ -24,6 +24,9 @@ public class Memory {
         else{
             throw new MemoryAddressDoesNotExistException("The referenced memory address does not exist.");
         }
+    }
+    public void changeByte(int offset, Byte newByte){
+        map.put(offset, newByte);
     }
     public int size(){
         return this.map.size();
