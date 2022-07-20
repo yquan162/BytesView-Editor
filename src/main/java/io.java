@@ -47,6 +47,9 @@ public class io {
                         interactor.changeMemory(offset);
                     }
                 }
+                else if(argv.contains("exit")){
+                    System.exit(0);
+                }
                 else if(argv.contains("help")){
                     System.out.println("help - shows commands");
                     System.out.println("chmem <offset: 00000000> - changes memory at specified address");
@@ -54,6 +57,7 @@ public class io {
                     System.out.println("flush - fills mem with all zeros");
                     System.out.println("reinit <size> - reinitialize new memory with new size.");
                     System.out.println("multich <addr1,addr2,addr3...> - change multiple addresses with one command");
+                    System.out.println("exit - exits the program");
                 }
                 else{
                     System.out.println("The specified command " + argv + " does not exist.\nType \"help\" for more information");
