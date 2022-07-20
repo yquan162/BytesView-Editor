@@ -17,5 +17,7 @@ public class MemoryDisplay {
         for(int i = 0; i < this.memory.size(); i++){
             System.out.println(String.format("0x%07X0", i) + "    " + this.memory.getByte(i).showByte() + "   " + this.memory.getByte(i).CRC32());
         }
+        System.out.println("------------------------------------------------------------------\n\n");
+
     }
 }
