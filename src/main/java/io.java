@@ -28,11 +28,24 @@ public class io {
                 else if(argv.contains("flush")){
                     interactor.flushMemory();
                 }
+                else if(argv.contains("reinit")){
+                    size = Integer.parseInt(argv.split(" ")[1]);
+                    display.ejectMemory();
+                    interactor.ejectMemory();
+                    System.out.println("Memory ejected from display and interactor");
+                    mem = new Memory(size);
+                    System.out.println("New memory with size " + size + " initialized");
+                    display.loadMemory(mem);
+                    interactor.loadMemory(mem);
+                    System.out.println("Memory has been loaded into display and interactor");
+                    display.showMemory();
+                }
                 else if(argv.contains("help")){
                     System.out.println("help - shows commands");
                     System.out.println("chmem <offset: 00000000> - changes memory at specified address");
                     System.out.println("dispmem - shows contents of memory");
                     System.out.println("flush - fills mem with all zeros");
+                    System.out.println("reinit <size> - reinitialize new memory with new size.");
                 }
                 else{
                     System.out.println("The specified command " + argv + " does not exist.\nTry \"help\" for more information");
