@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.util.Map;
 
 public class MemoryInteractor {
     Memory memory;
@@ -20,5 +21,12 @@ public class MemoryInteractor {
         Byte bt = memory.getByte(byteOffset);
         bt.changeBit(bitOffset, !bt.returnBit(bitOffset).boolValueOf());
         memory.changeByte(byteOffset, bt);
+    }
+    public void flushMemory() throws MemorySizeInitializationException, IOException {
+        int i = 0;
+        for(Map.Entry<Integer, Byte> entry:this.memory.map.entrySet()){
+            this.memory.changeByte(i, new Byte());
+            i++;
+        }
     }
 }

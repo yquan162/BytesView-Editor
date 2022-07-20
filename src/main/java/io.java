@@ -25,10 +25,14 @@ public class io {
                 else if(argv.contains("dispmem")){
                     display.showMemory();
                 }
+                else if(argv.contains("flush")){
+                    interactor.flushMemory();
+                }
                 else if(argv.contains("help")){
                     System.out.println("help - shows commands");
                     System.out.println("chmem <offset: 00000000> - changes memory at specified address");
                     System.out.println("dispmem - shows contents of memory");
+                    System.out.println("flush - fills mem with all zeros");
                 }
                 else{
                     System.out.println("The specified command " + argv + " does not exist.\nTry \"help\" for more information");
