@@ -15,7 +15,7 @@ public class MemoryDisplay {
     public void showMemory() throws MemoryAddressDoesNotExistException {
         System.out.println("Address       0 1 2 3 4 5 6 7");
         for(int i = 0; i < this.memory.size(); i++){
-            System.out.println(String.format("0x%08X", i) + "    " + this.memory.getByte(i).showByte());
+            System.out.println(String.format("0x%07X0", i) + "    " + this.memory.getByte(i).showByte());
         }
     }
 }

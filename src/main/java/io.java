@@ -3,9 +3,10 @@ public class io {
         Memory mem;
         MemoryDisplay display = new MemoryDisplay();
         try {
-            mem = new Memory(8);
+            mem = new Memory(64);
             display.loadMemory(mem);
-        } catch (MemorySizeInitializationException e) {
+            display.showMemory();
+        } catch (MemorySizeInitializationException | MemoryAddressDoesNotExistException e) {
             throw new RuntimeException(e);
         }
     }

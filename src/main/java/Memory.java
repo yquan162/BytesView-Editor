@@ -18,7 +18,7 @@ public class Memory {
         }
     }
     public Byte getByte(int offset) throws MemoryAddressDoesNotExistException{
-        if(offset<= map.size()){
+        if(offset <= map.size()){
             return map.get(offset);
         }
         else{
