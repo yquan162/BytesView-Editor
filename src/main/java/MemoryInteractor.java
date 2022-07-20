@@ -18,9 +18,11 @@ public class MemoryInteractor {
     public void changeMemory(String offset) throws MemoryAddressDoesNotExistException, IOException {
         int byteOffset = Integer.parseInt(offset.substring(0,7),16 );
         int bitOffset = Integer.parseInt(offset.substring(7));
-        Byte bt = memory.getByte(byteOffset);
+        Byte bt = this.memory.getByte(byteOffset);
         bt.changeBit(bitOffset, !bt.returnBit(bitOffset).boolValueOf());
-        memory.changeByte(byteOffset, bt);
+        this.memory.changeByte(byteOffset, bt);
+        bt = null;
+        System.gc();
     }
     public void flushMemory() throws MemorySizeInitializationException, IOException {
         int i = 0;

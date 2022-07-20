@@ -17,4 +17,7 @@ public class Bit implements Serializable {
     public void changeValue(){
         this.value = !this.value;
     }
+    public void assignValue(boolean val){
+        this.value = val;
+    }
 }

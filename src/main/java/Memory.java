@@ -2,9 +2,6 @@ import java.io.IOException;
 import java.util.TreeMap;
 public class Memory {
     TreeMap<Integer, Byte> map;
-    public Memory(){
-        this.map = new TreeMap<Integer, Byte>();
-    }
     public Memory(TreeMap<Integer, Byte> mem){
         this.map = mem;
     }
@@ -18,15 +15,15 @@ public class Memory {
         }
     }
     public Byte getByte(int offset) throws MemoryAddressDoesNotExistException{
-        if(offset <= map.size()){
-            return map.get(offset);
+        if(offset <= this.map.size()){
+            return this.map.get(offset);
         }
         else{
             throw new MemoryAddressDoesNotExistException("The referenced memory address does not exist.");
         }
     }
     public void changeByte(int offset, Byte newByte){
-        map.put(offset, newByte);
+        this.map.put(offset, newByte);
     }
     public int size(){
         return this.map.size();

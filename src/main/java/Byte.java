@@ -2,28 +2,22 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.io.ByteArrayOutputStream;
 import java.io.ObjectOutputStream;
+import java.util.Base64;
 import java.util.zip.CRC32;
 
 public class Byte {
     Bit b[] = new Bit[8];
     byte bits[];
 
+
     public Byte() throws IOException {
-        Arrays.fill(this.b, new Bit());
-        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        ObjectOutputStream oos = new ObjectOutputStream(bos);
-        oos.writeObject(this.b);
-        oos.flush();
-        bits = bos.toByteArray();
+        this.fillByte();
+        this.writeBits();
     }
     public Byte(boolean value, int index) throws IOException {
-        Arrays.fill(this.b, new Bit());
-        b[index] = new Bit(value);
-        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        ObjectOutputStream oos = new ObjectOutputStream(bos);
-        oos.writeObject(this.b);
-        oos.flush();
-        bits = bos.toByteArray();
+        this.fillByte();
+        this.b[index] = new Bit(value);
+        this.writeBits();
     }
     public Bit[] valueOf(){
         return this.b;
@@ -32,33 +26,39 @@ public class Byte {
         return this.b[index];
     }
     public void changeBit(int index, boolean value) throws IOException {
-        this.b[index] = new Bit(value);
-        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        ObjectOutputStream oos = new ObjectOutputStream(bos);
-        oos.writeObject(this.b);
-        oos.flush();
-        bits = bos.toByteArray();
-        CRC32();
+        this.b[index].assignValue(value);
+        this.writeBits();
     }
     public String showByte(){
         String bits = "";
-        for(Bit bit:b){
+        for(Bit bit:this.b){
             bits += bit.valueOf();
             bits += " ";
         }
         return bits;
     }
+    public void fillByte(){
+        for(int i = 0; i<this.b.length; i++){
+            b[i] = new Bit();
+        }
+    }
+    public void writeBits() throws IOException {
+        this.bits = this.toByteArray();
+    }
     public byte[] toByteArray() throws IOException {
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         ObjectOutputStream oos = new ObjectOutputStream(bos);
-        oos.writeObject(this.b);
-        oos.flush();
+        oos.writeObject( this.b);
         byte [] data = bos.toByteArray();
+        oos.flush();
         return data;
     }
-    public String CRC32() {
+    public String CRC32() throws IOException {
         CRC32 crc32 = new CRC32();
-        crc32.update(this.bits);
-        return Long.toHexString(crc32.getValue());
+        crc32.update(this.toByteArray());
+        String out = Long.toHexString(crc32.getValue());
+        crc32 = null;
+        System.gc();
+        return out;
     }
 }

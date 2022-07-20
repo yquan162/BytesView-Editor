@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 import java.util.Scanner;
 
 public class io {
@@ -50,6 +51,9 @@ public class io {
                 else if(argv.contains("exit")){
                     System.exit(0);
                 }
+                else if(argv.contains("checksum")){
+                    System.out.println("SHA-256 Checksum: " + display.sha256());
+                }
                 else if(argv.contains("help")){
                     System.out.println("help - shows commands");
                     System.out.println("chmem <offset: 00000000> - changes memory at specified address");
@@ -58,6 +62,7 @@ public class io {
                     System.out.println("reinit <size> - reinitialize new memory with new size.");
                     System.out.println("multich <addr1,addr2,addr3...> - change multiple addresses with one command");
                     System.out.println("exit - exits the program");
+                    System.out.println("checksum - prints the sha256 checksum of memory");
                 }
                 else{
                     System.out.println("The specified command " + argv + " does not exist.\nType \"help\" for more information");
@@ -66,6 +71,8 @@ public class io {
         } catch (MemorySizeInitializationException | MemoryAddressDoesNotExistException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException(e);
         }
     }
