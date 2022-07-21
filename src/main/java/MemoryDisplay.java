@@ -18,12 +18,15 @@ public class MemoryDisplay {
     public void ejectMemory(){
         this.memory = null;
     }
-    public void showMemory() throws MemoryAddressDoesNotExistException, IOException {
+    public void showMemory(boolean verbose) throws MemoryAddressDoesNotExistException, IOException, NoSuchAlgorithmException {
         System.out.println("Address       0 1 2 3 4 5 6 7    CRC32");
         for(int i = 0; i < this.memory.size(); i++){
             System.out.println(String.format("0x%07X0", i) + "    " + this.memory.getByte(i).showByte() + "   " + this.memory.getByte(i).CRC32());
         }
         System.out.println("------------------------------------------------------------------\n\n");
+        if(verbose){
+            System.out.println("SHA-256 Checksum: " + this.sha256());
+        }
 
     }
     public String sha256() throws NoSuchAlgorithmException, MemoryAddressDoesNotExistException, IOException {

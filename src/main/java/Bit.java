@@ -12,12 +12,15 @@ public class Bit implements Serializable {
         return (this.value) ? 1 : 0;
     }
     public boolean boolValueOf(){
-        return value;
+        return this.value;
     }
     public void changeValue(){
         this.value = !this.value;
     }
     public void assignValue(boolean val){
         this.value = val;
+    }
+    public String toString(){
+        return String.valueOf(this.valueOf());
     }
 }

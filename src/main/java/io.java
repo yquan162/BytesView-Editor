@@ -8,6 +8,7 @@ public class io {
         MemoryDisplay display = new MemoryDisplay();
         MemoryInteractor interactor = new MemoryInteractor();
         Scanner sc = new Scanner(System.in);
+        boolean verbosity = false;
         System.out.print("Initialize memory size(min 1): ");
         int size = sc.nextInt();
         sc.nextLine();
@@ -16,19 +17,24 @@ public class io {
             display.loadMemory(mem);
             interactor.loadMemory(mem);
             System.out.println("Memory has been loaded into display and interactor");
-            display.showMemory();
+            display.showMemory(verbosity);
             String argv = "";
             while(true){
-                System.out.print(">");
+                if(verbosity){
+                    System.out.print("<-v>");
+                }
+                else {
+                    System.out.print(">");
+                }
                 argv = sc.nextLine();
                 if(argv.contains("chmem")){
-                    interactor.changeMemory(argv.split(" ")[1]);
+                    interactor.changeMemory(argv.split(" ")[1], verbosity);
                 }
                 else if(argv.contains("dispmem")){
-                    display.showMemory();
+                    display.showMemory(verbosity);
                 }
                 else if(argv.contains("flush")){
-                    interactor.flushMemory();
+                    interactor.flushMemory(verbosity);
                 }
                 else if(argv.contains("reinit")){
                     size = Integer.parseInt(argv.split(" ")[1]);
@@ -40,16 +46,24 @@ public class io {
                     display.loadMemory(mem);
                     interactor.loadMemory(mem);
                     System.out.println("Memory has been loaded into display and interactor");
-                    display.showMemory();
+                    display.showMemory(verbosity);
                 }
                 else if(argv.contains("multich")){
                     String[] offsets = argv.split(" ")[1].split(",");
                     for(String offset:offsets){
-                        interactor.changeMemory(offset);
+                        interactor.changeMemory(offset, verbosity);
                     }
                 }
                 else if(argv.contains("exit")){
                     System.exit(0);
+                }
+                else if(argv.contains("verbose")){
+                    System.out.println("Verbosity turned on");
+                    verbosity = true;
+                }
+                else if(argv.contains("mute")){
+                    System.out.println("Verbosity turned off");
+                    verbosity = false;
                 }
                 else if(argv.contains("checksum")){
                     System.out.println("SHA-256 Checksum: " + display.sha256());
@@ -63,6 +77,8 @@ public class io {
                     System.out.println("multich <addr1,addr2,addr3...> - change multiple addresses with one command");
                     System.out.println("exit - exits the program");
                     System.out.println("checksum - prints the sha256 checksum of memory");
+                    System.out.println("verbose - turns on additional information");
+                    System.out.println("mute - toggle off verbosity");
                 }
                 else{
                     System.out.println("The specified command " + argv + " does not exist.\nType \"help\" for more information");
