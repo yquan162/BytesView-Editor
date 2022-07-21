@@ -19,6 +19,10 @@ public class MemoryDisplay {
         this.memory = null;
     }
     public void showMemory(boolean verbose) throws MemoryAddressDoesNotExistException, IOException, NoSuchAlgorithmException {
+        if(this.memory == null){
+            System.out.println("This display instance does not have memory loaded!");
+            return;
+        }
         System.out.println("Address       0 1 2 3 4 5 6 7    CRC32");
         for(int i = 0; i < this.memory.size(); i++){
             System.out.println(String.format("0x%07X0", i) + "    " + this.memory.getByte(i).showByte() + "   " + this.memory.getByte(i).CRC32());
@@ -30,6 +34,10 @@ public class MemoryDisplay {
 
     }
     public String sha256() throws NoSuchAlgorithmException, MemoryAddressDoesNotExistException, IOException {
+        if(this.memory == null){
+            System.out.println("This display instance does not have memory loaded!");
+            return new String();
+        }
         final MessageDigest md = MessageDigest.getInstance("SHA-256");
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         final StringBuilder hexString = new StringBuilder();

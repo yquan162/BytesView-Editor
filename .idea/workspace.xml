@@ -9,9 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65daad2b-56f3-4f07-8b4f-8530d48cd7e9" name="Changes" comment="Fixed bit filling memory address issue. Fixed CRC32 integrity. Added SHA-256 checksum for whole virtual memory instance.">
+    <list default="true" id="65daad2b-56f3-4f07-8b4f-8530d48cd7e9" name="Changes" comment="Added verbosity to output for debug purposes.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Bit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Bit.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MemoryDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MemoryDisplay.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MemoryInteractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MemoryInteractor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io.java" afterDir="false" />
@@ -73,7 +72,7 @@
       <option name="presentableId" value="Default" />
       <updated>1658297546698</updated>
       <workItem from="1658297548336" duration="7073000" />
-      <workItem from="1658308873507" duration="22288000" />
+      <workItem from="1658308873507" duration="27929000" />
     </task>
     <task id="LOCAL-00001" summary="Added command &quot;multich&quot; to change multiple addresses in one command.">
       <created>1658304981020</created>
@@ -110,7 +109,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658358479885</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added verbosity to output for debug purposes.">
+      <created>1658377313971</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1658377313971</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -158,6 +164,7 @@
     <MESSAGE value="workspace.xml" />
     <MESSAGE value="Added exit command." />
     <MESSAGE value="Fixed bit filling memory address issue. Fixed CRC32 integrity. Added SHA-256 checksum for whole virtual memory instance." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed bit filling memory address issue. Fixed CRC32 integrity. Added SHA-256 checksum for whole virtual memory instance." />
+    <MESSAGE value="Added verbosity to output for debug purposes." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added verbosity to output for debug purposes." />
   </component>
 </project>
