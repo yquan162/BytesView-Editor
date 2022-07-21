@@ -14,11 +14,6 @@ public class Byte {
         this.fillByte();
         this.writeBits();
     }
-    public Byte(boolean value, int index) throws IOException {
-        this.fillByte();
-        this.b[index] = new Bit(value);
-        this.writeBits();
-    }
     public Bit[] valueOf(){
         return this.b;
     }
