@@ -9,7 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65daad2b-56f3-4f07-8b4f-8530d48cd7e9" name="Changes" comment="Allow manual memory swaps. Allow manual ejection and loading of display and interactors. Implement some sort of error handling in the command line. Added command suggestion system.">
+    <list default="true" id="65daad2b-56f3-4f07-8b4f-8530d48cd7e9" name="Changes" comment="Get rid of unused constructor.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -69,7 +69,7 @@
       <option name="presentableId" value="Default" />
       <updated>1658297546698</updated>
       <workItem from="1658297548336" duration="7073000" />
-      <workItem from="1658308873507" duration="29022000" />
+      <workItem from="1658308873507" duration="31193000" />
     </task>
     <task id="LOCAL-00001" summary="Added command &quot;multich&quot; to change multiple addresses in one command.">
       <created>1658304981020</created>
@@ -120,7 +120,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658395025480</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Get rid of unused constructor.">
+      <created>1658441213889</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1658441213889</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -170,6 +177,7 @@
     <MESSAGE value="Fixed bit filling memory address issue. Fixed CRC32 integrity. Added SHA-256 checksum for whole virtual memory instance." />
     <MESSAGE value="Added verbosity to output for debug purposes." />
     <MESSAGE value="Allow manual memory swaps. Allow manual ejection and loading of display and interactors. Implement some sort of error handling in the command line. Added command suggestion system." />
-    <option name="LAST_COMMIT_MESSAGE" value="Allow manual memory swaps. Allow manual ejection and loading of display and interactors. Implement some sort of error handling in the command line. Added command suggestion system." />
+    <MESSAGE value="Get rid of unused constructor." />
+    <option name="LAST_COMMIT_MESSAGE" value="Get rid of unused constructor." />
   </component>
 </project>

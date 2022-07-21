@@ -1,0 +1,1 @@
+The purpose of this project is to simulate the essence of how memory works. As for functions such as read-only or random access, those have yet to be implemented. As of now, only initialization, modulization, and interfaces have been developed. A simple command line interface is currently in use.
