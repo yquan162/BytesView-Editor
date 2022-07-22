@@ -10,7 +10,7 @@ public class io implements Runnable{
         String[] commands = {"help", "chmem", "dispmem", "flush", "multich"
                 , "exit", "verbose", "mute", "ejectdisp", "ejectint"
                 , "loaddisp", "loadint", "newmem","identdisp","identint"
-                , "cyclemem"};
+                , "cyclemem", "purge"};
         Memory mem = null;
         MemoryDisplay display = new MemoryDisplay();
         MemoryInteractor interactor = new MemoryInteractor();
@@ -129,6 +129,10 @@ public class io implements Runnable{
                     System.out.println("Memory has been loaded into display and interactor\n");
                     display.showMemory(verbosity);
                 }
+                else if(argv.contains("purge")){
+                    System.out.println("Memory has been purged\n");
+                    mem = null;
+                }
                 else if(argv.contains("help")){
                     System.out.println("help - shows commands");
                     System.out.println("chmem <offset: 00000000> - changes memory at specified address");
@@ -146,6 +150,7 @@ public class io implements Runnable{
                     System.out.println("identdisp - shows checksum of currently attached memory");
                     System.out.println("identint - shows checksum of currently attached memory");
                     System.out.println("cyclemem - detaches then reattaches memory");
+                    System.out.println("purge - discards active memory");
                 }
                 else{
                     System.out.println("The specified command \"" + argv + "\" does not exist.\nType \"help\" for more information\n");
