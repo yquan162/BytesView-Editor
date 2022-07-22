@@ -8,9 +8,8 @@ public class io implements Runnable{
     public void run(){
         Thread.currentThread().setUncaughtExceptionHandler(new ExceptionHandler());
         String[] commands = {"help", "chmem", "dispmem", "flush", "multich"
-                , "exit", "checksum", "verbose", "mute", "ejectdisp"
-                , "ejectint", "loaddisp", "loadint", "newmem","identdisp"
-                ,"identint"};
+                , "exit", "verbose", "mute", "ejectdisp", "ejectint"
+                , "loaddisp", "loadint", "newmem","identdisp","identint"};
         Memory mem = null;
         MemoryDisplay display = new MemoryDisplay();
         MemoryInteractor interactor = new MemoryInteractor();
@@ -64,9 +63,6 @@ public class io implements Runnable{
                 else if(argv.contains("mute")){
                     System.out.println("Verbosity turned off");
                     verbosity = false;
-                }
-                else if(argv.contains("checksum")){
-                    System.out.println("SHA-256 Checksum: " + display.sha256());
                 }
                 else if(argv.contains("ejectdisp")){
                     display.ejectMemory();

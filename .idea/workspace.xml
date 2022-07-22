@@ -9,11 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65daad2b-56f3-4f07-8b4f-8530d48cd7e9" name="Changes" comment="remove funciton &quot;reinit&quot;(deprecated). Use &quot;newmem&quot; from now on.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MemoryInteractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MemoryInteractor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io.java" afterDir="false" />
-    </list>
+    <list default="true" id="65daad2b-56f3-4f07-8b4f-8530d48cd7e9" name="Changes" comment="fix logic errors, typos" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -166,7 +162,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658463405179</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="fix logic errors, typos">
+      <created>1658463860965</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1658463860965</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -220,6 +223,7 @@
     <MESSAGE value="Added README.md" />
     <MESSAGE value="Added commands to indentify memory in interfaces. Added threading and exception handling. Got rid of initialization prompt." />
     <MESSAGE value="remove funciton &quot;reinit&quot;(deprecated). Use &quot;newmem&quot; from now on." />
-    <option name="LAST_COMMIT_MESSAGE" value="remove funciton &quot;reinit&quot;(deprecated). Use &quot;newmem&quot; from now on." />
+    <MESSAGE value="fix logic errors, typos" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix logic errors, typos" />
   </component>
 </project>
