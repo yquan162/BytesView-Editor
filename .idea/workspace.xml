@@ -9,7 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65daad2b-56f3-4f07-8b4f-8530d48cd7e9" name="Changes" comment="fix logic errors, typos" />
+    <list default="true" id="65daad2b-56f3-4f07-8b4f-8530d48cd7e9" name="Changes" comment="built checksums into Memory.java, removed reimplementations of sha256() from display and interactor." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -169,7 +169,28 @@
       <option name="project" value="LOCAL" />
       <updated>1658463860965</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="&quot;checksum&quot; is deprecated, use &quot;identdisp&quot; or &quot;identint&quot;.">
+      <created>1658464372011</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1658464372011</updated>
+    </task>
+    <task id="LOCAL-00014" summary="allow interactor to function independently.">
+      <created>1658464485337</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1658464485337</updated>
+    </task>
+    <task id="LOCAL-00015" summary="built checksums into Memory.java, removed reimplementations of sha256() from display and interactor.">
+      <created>1658464781481</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1658464781481</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -224,6 +245,9 @@
     <MESSAGE value="Added commands to indentify memory in interfaces. Added threading and exception handling. Got rid of initialization prompt." />
     <MESSAGE value="remove funciton &quot;reinit&quot;(deprecated). Use &quot;newmem&quot; from now on." />
     <MESSAGE value="fix logic errors, typos" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix logic errors, typos" />
+    <MESSAGE value="&quot;checksum&quot; is deprecated, use &quot;identdisp&quot; or &quot;identint&quot;." />
+    <MESSAGE value="allow interactor to function independently." />
+    <MESSAGE value="built checksums into Memory.java, removed reimplementations of sha256() from display and interactor." />
+    <option name="LAST_COMMIT_MESSAGE" value="built checksums into Memory.java, removed reimplementations of sha256() from display and interactor." />
   </component>
 </project>

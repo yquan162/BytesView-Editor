@@ -9,7 +9,8 @@ public class io implements Runnable{
         Thread.currentThread().setUncaughtExceptionHandler(new ExceptionHandler());
         String[] commands = {"help", "chmem", "dispmem", "flush", "multich"
                 , "exit", "verbose", "mute", "ejectdisp", "ejectint"
-                , "loaddisp", "loadint", "newmem","identdisp","identint"};
+                , "loaddisp", "loadint", "newmem","identdisp","identint"
+                , "cyclemem"};
         Memory mem = null;
         MemoryDisplay display = new MemoryDisplay();
         MemoryInteractor interactor = new MemoryInteractor();
@@ -97,7 +98,7 @@ public class io implements Runnable{
                                 mem = new Memory(sizeb);
                                 display.loadMemory(mem);
                                 interactor.loadMemory(mem);
-                                System.out.println("Memory has been loaded into display and interactor");
+                                System.out.println("Memory has been loaded into display and interactor\n");
                                 display.showMemory(verbosity);
                             }
                             else{
@@ -119,14 +120,22 @@ public class io implements Runnable{
                         System.out.println("Interactor memory checksum: "+interactor.sha256());
                     }
                 }
+                else if(argv.contains("cyclemem")){
+                    display.ejectMemory();
+                    interactor.ejectMemory();
+                    System.out.println("Memory ejected from display and interactor");
+                    display.loadMemory(mem);
+                    interactor.loadMemory(mem);
+                    System.out.println("Memory has been loaded into display and interactor\n");
+                    display.showMemory(verbosity);
+                }
                 else if(argv.contains("help")){
                     System.out.println("help - shows commands");
                     System.out.println("chmem <offset: 00000000> - changes memory at specified address");
                     System.out.println("dispmem - shows contents of memory");
                     System.out.println("flush - fills mem with all zeros");
                     System.out.println("multich <addr1,addr2,addr3...> - change multiple addresses with one command");
-                    System.out.println("exit - exits the program");
-                    System.out.println("checksum - prints the sha256 checksum of memory");
+                    System.out.println("exit - exits the program");;
                     System.out.println("verbose - turns on additional information");
                     System.out.println("mute - toggle off verbosity");
                     System.out.println("ejectdisp - eject memory from the display");
@@ -136,6 +145,7 @@ public class io implements Runnable{
                     System.out.println("newmem <size> <-a (auto reattaching of display and interactor)>- replaces the instance of memory with a new one");
                     System.out.println("identdisp - shows checksum of currently attached memory");
                     System.out.println("identint - shows checksum of currently attached memory");
+                    System.out.println("cyclemem - detaches then reattaches memory");
                 }
                 else{
                     System.out.println("The specified command \"" + argv + "\" does not exist.\nType \"help\" for more information\n");
