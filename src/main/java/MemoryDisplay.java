@@ -5,7 +5,7 @@ import java.util.Map;
 import java.io.ByteArrayOutputStream;
 
 public class MemoryDisplay {
-    Memory memory;
+    private Memory memory;
     public MemoryDisplay(Memory mem){
         this.memory = mem;
     }
@@ -39,5 +39,8 @@ public class MemoryDisplay {
             return new String();
         }
         return this.memory.sha256();
+    }
+    public boolean isEmpty(){
+        return (this.memory == null) ? true : false;
     }
 }

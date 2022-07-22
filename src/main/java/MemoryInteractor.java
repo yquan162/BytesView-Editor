@@ -5,7 +5,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Map;
 
 public class MemoryInteractor {
-    Memory memory;
+    private Memory memory;
     public MemoryInteractor(Memory mem){
         this.memory = mem;
     }
@@ -62,5 +62,8 @@ public class MemoryInteractor {
             return new String();
         }
         return this.memory.sha256();
+    }
+    public boolean isEmpty(){
+        return (this.memory == null) ? true : false;
     }
 }

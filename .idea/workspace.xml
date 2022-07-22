@@ -9,7 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65daad2b-56f3-4f07-8b4f-8530d48cd7e9" name="Changes" comment="built checksums into Memory.java, removed reimplementations of sha256() from display and interactor." />
+    <list default="true" id="65daad2b-56f3-4f07-8b4f-8530d48cd7e9" name="Changes" comment="added &quot;purge&quot; to discard memory">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MemoryDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MemoryDisplay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MemoryInteractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MemoryInteractor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -190,7 +195,21 @@
       <option name="project" value="LOCAL" />
       <updated>1658464781481</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="formatting changes and added &quot;cyclemem&quot; command to auto-swap the display and interact memory">
+      <created>1658465207683</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1658465207683</updated>
+    </task>
+    <task id="LOCAL-00017" summary="added &quot;purge&quot; to discard memory">
+      <created>1658465343618</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1658465343618</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -248,6 +267,8 @@
     <MESSAGE value="&quot;checksum&quot; is deprecated, use &quot;identdisp&quot; or &quot;identint&quot;." />
     <MESSAGE value="allow interactor to function independently." />
     <MESSAGE value="built checksums into Memory.java, removed reimplementations of sha256() from display and interactor." />
-    <option name="LAST_COMMIT_MESSAGE" value="built checksums into Memory.java, removed reimplementations of sha256() from display and interactor." />
+    <MESSAGE value="formatting changes and added &quot;cyclemem&quot; command to auto-swap the display and interact memory" />
+    <MESSAGE value="added &quot;purge&quot; to discard memory" />
+    <option name="LAST_COMMIT_MESSAGE" value="added &quot;purge&quot; to discard memory" />
   </component>
 </project>

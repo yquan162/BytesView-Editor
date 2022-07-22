@@ -10,7 +10,7 @@ public class io implements Runnable{
         String[] commands = {"help", "chmem", "dispmem", "flush", "multich"
                 , "exit", "verbose", "mute", "ejectdisp", "ejectint"
                 , "loaddisp", "loadint", "newmem","identdisp","identint"
-                , "cyclemem", "purge"};
+                , "cyclemem", "purge", "status"};
         Memory mem = null;
         MemoryDisplay display = new MemoryDisplay();
         MemoryInteractor interactor = new MemoryInteractor();
@@ -133,6 +133,25 @@ public class io implements Runnable{
                     System.out.println("Memory has been purged\n");
                     mem = null;
                 }
+                else if(argv.contains("status")){
+                    System.out.println("Display\n-----------------------");
+                    System.out.println("isEmpty: " + display.isEmpty());
+                    if(!display.isEmpty()){
+                        System.out.println("Memory checksum: " + display.sha256() + "\n");
+                    }
+                    System.out.println("Interactor\n-----------------------");
+                    System.out.println("isEmpty: " + interactor.isEmpty());
+                    if(!interactor.isEmpty()){
+                        System.out.println("Memory checksum: " + interactor.sha256() + "\n");
+                    }
+                    if(mem != null){
+                        System.out.println("Current memory checksum: " + mem.sha256());
+                    }
+                    else {
+                        System.out.println("There is no memory that has been initialized.\n");
+                    }
+
+                }
                 else if(argv.contains("help")){
                     System.out.println("help - shows commands");
                     System.out.println("chmem <offset: 00000000> - changes memory at specified address");
@@ -151,6 +170,7 @@ public class io implements Runnable{
                     System.out.println("identint - shows checksum of currently attached memory");
                     System.out.println("cyclemem - detaches then reattaches memory");
                     System.out.println("purge - discards active memory");
+                    System.out.println("status - shows the status of the memory and interfaces");
                 }
                 else{
                     System.out.println("The specified command \"" + argv + "\" does not exist.\nType \"help\" for more information\n");
