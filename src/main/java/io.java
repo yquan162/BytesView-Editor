@@ -1,32 +1,25 @@
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
-import java.util.Locale;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class io {
-    public static void main(String[] args){
-        String[] commands = {"help", "chmem", "dispmem", "flush", "reinit", "multich", "exit", "checksum", "verbose", "mute", "ejectdisp", "ejectint", "loaddisp", "loadint", "newmem"};
-        Memory mem;
+public class io implements Runnable{
+    @Override
+    public void run(){
+        Thread.currentThread().setUncaughtExceptionHandler(new ExceptionHandler());
+        String[] commands = {"help", "chmem", "dispmem", "flush", "reinit"
+                , "multich", "exit", "checksum", "verbose", "mute"
+                , "ejectdisp", "ejectint", "loaddisp", "loadint", "newmem"
+                ,"identdisp","identint"};
+        Memory mem = null;
         MemoryDisplay display = new MemoryDisplay();
         MemoryInteractor interactor = new MemoryInteractor();
         Scanner sc = new Scanner(System.in);
         boolean verbosity = false;
         boolean matches = false;
         int size = 0;
+        System.out.println("Thread started, please initialize some memory with \"newmem\"");
         try {
-            while(size < 1){
-                System.out.print("Initialize memory size(min 1): ");
-                size = sc.nextInt();
-                sc.nextLine();
-                if(size < 1){
-                    System.out.println("Invalid memory size! (min 1)");
-                }
-            }
-            mem = new Memory(size);
-            display.loadMemory(mem);
-            interactor.loadMemory(mem);
-            System.out.println("Memory has been loaded into display and interactor");
-            display.showMemory(verbosity);
             String argv = "";
             while(true){
                 if(verbosity){
@@ -117,11 +110,28 @@ public class io {
                         if(sizeb > 0){
                             mem = new Memory(sizeb);
                             System.out.println("New memory with size " + sizeb + " initialized");
+                            if(argv.split(" ")[argv.split(" ").length-1].contains("-a")){
+                                System.out.println("Auto swapping of display and interactor is on");
+                                display.ejectMemory();
+                                interactor.ejectMemory();
+                                display.loadMemory(mem);
+                                interactor.loadMemory(mem);
+                                display.showMemory(verbosity);
+                            }
+                            else{
+                                System.out.println("WARN: Display and Interactor have not been switched to new memory.");
+                            }
                         }
                         else {
                             System.out.println("Invalid memory size! (min 1)");
                         }
                     }
+                }
+                else if(argv.contains("identdisp")){
+                    System.out.println("Display memory checksum: "+display.sha256());
+                }
+                else if(argv.contains("identint")){
+                    System.out.println("Interactor memory checksum: "+interactor.identMem());
                 }
                 else if(argv.contains("help")){
                     System.out.println("help - shows commands");
@@ -138,7 +148,9 @@ public class io {
                     System.out.println("ejectint - eject memory from the interactor");
                     System.out.println("loaddisp - load current virtual memory instance into display");
                     System.out.println("loadint - load current virtual memory instance into interactor");
-                    System.out.println("newmem <size>- replaces the instance of memory with a new one");
+                    System.out.println("newmem <size> <-a (auto reattaching of display and interactor)>- replaces the instance of memory with a new one");
+                    System.out.println("identdisp - shows checksum of currently attached memory");
+                    System.out.println("identint - shows checksum of currently attached memory");
                 }
                 else{
                     System.out.println("The specified command \"" + argv + "\" does not exist.\nType \"help\" for more information\n");

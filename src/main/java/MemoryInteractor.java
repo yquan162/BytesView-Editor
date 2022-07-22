@@ -26,14 +26,12 @@ public class MemoryInteractor {
         Byte bt = this.memory.getByte(byteOffset);
         if(verbose){
             String crc = bt.CRC32();
-            MemoryDisplay mdisp = new MemoryDisplay(this.memory);
             int state = bt.returnBit(bitOffset).valueOf();
             bt.changeBit(bitOffset, !bt.returnBit(bitOffset).boolValueOf());
             System.out.println("Bit at address 0x" + offset + " changed to " + bt.returnBit(bitOffset).valueOf() +"(was "+ state + ")");
             System.out.println("CRC32 checksum at 0x" + offset.substring(0,7) + "0 has changed to " + bt.CRC32() + "(was " + crc+")");
             System.out.println("SHA-256 checksum of virtual memory has changed.\nType \"checksum\" to see more details.\n");
             crc = null;
-            mdisp = null;
         }
         else{
             bt.changeBit(bitOffset, !bt.returnBit(bitOffset).boolValueOf());
@@ -55,5 +53,9 @@ public class MemoryInteractor {
         if(verbose){
             System.out.println("Memory of size "+ this.memory.size()+" flushed.");
         }
+    }
+    public String identMem() throws MemoryAddressDoesNotExistException, NoSuchAlgorithmException, IOException {
+        MemoryDisplay mdisp = new MemoryDisplay(this.memory);
+        return mdisp.sha256();
     }
 }
