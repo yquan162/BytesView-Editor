@@ -9,14 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65daad2b-56f3-4f07-8b4f-8530d48cd7e9" name="Changes" comment="Added README.md">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Recovery.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StartThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MemoryInteractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MemoryInteractor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io.java" afterDir="false" />
-    </list>
+    <list default="true" id="65daad2b-56f3-4f07-8b4f-8530d48cd7e9" name="Changes" comment="Added commands to indentify memory in interfaces. Added threading and exception handling. Got rid of initialization prompt." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -155,7 +148,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658443759684</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Added commands to indentify memory in interfaces. Added threading and exception handling. Got rid of initialization prompt.">
+      <created>1658463076135</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1658463076135</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -207,6 +207,7 @@
     <MESSAGE value="Allow manual memory swaps. Allow manual ejection and loading of display and interactors. Implement some sort of error handling in the command line. Added command suggestion system." />
     <MESSAGE value="Get rid of unused constructor." />
     <MESSAGE value="Added README.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added README.md" />
+    <MESSAGE value="Added commands to indentify memory in interfaces. Added threading and exception handling. Got rid of initialization prompt." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added commands to indentify memory in interfaces. Added threading and exception handling. Got rid of initialization prompt." />
   </component>
 </project>

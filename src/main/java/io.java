@@ -43,23 +43,6 @@ public class io implements Runnable{
                 else if(argv.contains("flush")){
                     interactor.flushMemory(verbosity);
                 }
-                else if(argv.contains("reinit")){
-                    if(argv.split(" ").length == 1){
-                        System.out.println("Missing parameters!");
-                    }
-                    else{
-                        size = Integer.parseInt(argv.split(" ")[1]);
-                        display.ejectMemory();
-                        interactor.ejectMemory();
-                        System.out.println("Memory ejected from display and interactor");
-                        mem = new Memory(size);
-                        System.out.println("New memory with size " + size + " initialized");
-                        display.loadMemory(mem);
-                        interactor.loadMemory(mem);
-                        System.out.println("Memory has been loaded into display and interactor");
-                        display.showMemory(verbosity);
-                    }
-                }
                 else if(argv.contains("multich")){
                     if(argv.split(" ").length == 1){
                         System.out.println("Missing parameters!");
@@ -114,8 +97,12 @@ public class io implements Runnable{
                                 System.out.println("Auto swapping of display and interactor is on");
                                 display.ejectMemory();
                                 interactor.ejectMemory();
+                                System.out.println("Memory ejected from display and interactor");
+                                mem = new Memory(sizeb);
+                                System.out.println("New memory with size " + size + " initialized");
                                 display.loadMemory(mem);
                                 interactor.loadMemory(mem);
+                                System.out.println("Memory has been loaded into display and interactor");
                                 display.showMemory(verbosity);
                             }
                             else{
@@ -138,7 +125,6 @@ public class io implements Runnable{
                     System.out.println("chmem <offset: 00000000> - changes memory at specified address");
                     System.out.println("dispmem - shows contents of memory");
                     System.out.println("flush - fills mem with all zeros");
-                    System.out.println("reinit <size> - reinitialize new memory with new size.");
                     System.out.println("multich <addr1,addr2,addr3...> - change multiple addresses with one command");
                     System.out.println("exit - exits the program");
                     System.out.println("checksum - prints the sha256 checksum of memory");
