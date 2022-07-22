@@ -7,10 +7,10 @@ public class io implements Runnable{
     @Override
     public void run(){
         Thread.currentThread().setUncaughtExceptionHandler(new ExceptionHandler());
-        String[] commands = {"help", "chmem", "dispmem", "flush", "reinit"
-                , "multich", "exit", "checksum", "verbose", "mute"
-                , "ejectdisp", "ejectint", "loaddisp", "loadint", "newmem"
-                ,"identdisp","identint"};
+        String[] commands = {"help", "chmem", "dispmem", "flush", "multich"
+                , "exit", "checksum", "verbose", "mute", "ejectdisp"
+                , "ejectint", "loaddisp", "loadint", "newmem","identdisp"
+                ,"identint"};
         Memory mem = null;
         MemoryDisplay display = new MemoryDisplay();
         MemoryInteractor interactor = new MemoryInteractor();
@@ -99,7 +99,6 @@ public class io implements Runnable{
                                 interactor.ejectMemory();
                                 System.out.println("Memory ejected from display and interactor");
                                 mem = new Memory(sizeb);
-                                System.out.println("New memory with size " + size + " initialized");
                                 display.loadMemory(mem);
                                 interactor.loadMemory(mem);
                                 System.out.println("Memory has been loaded into display and interactor");
@@ -115,10 +114,14 @@ public class io implements Runnable{
                     }
                 }
                 else if(argv.contains("identdisp")){
+                    if(!display.sha256().equals("")){
                     System.out.println("Display memory checksum: "+display.sha256());
+                    }
                 }
                 else if(argv.contains("identint")){
-                    System.out.println("Interactor memory checksum: "+interactor.identMem());
+                    if(!interactor.sha256().equals("")){
+                        System.out.println("Interactor memory checksum: "+interactor.sha256());
+                    }
                 }
                 else if(argv.contains("help")){
                     System.out.println("help - shows commands");

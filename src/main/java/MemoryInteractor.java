@@ -54,7 +54,7 @@ public class MemoryInteractor {
             System.out.println("Memory of size "+ this.memory.size()+" flushed.");
         }
     }
-    public String identMem() throws MemoryAddressDoesNotExistException, NoSuchAlgorithmException, IOException {
+    public String sha256() throws MemoryAddressDoesNotExistException, NoSuchAlgorithmException, IOException {
         MemoryDisplay mdisp = new MemoryDisplay(this.memory);
         return mdisp.sha256();
     }
