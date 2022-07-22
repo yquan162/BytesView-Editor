@@ -38,21 +38,6 @@ public class MemoryDisplay {
             System.out.println("This display instance does not have memory loaded!");
             return new String();
         }
-        final MessageDigest md = MessageDigest.getInstance("SHA-256");
-        ByteArrayOutputStream out = new ByteArrayOutputStream();
-        final StringBuilder hexString = new StringBuilder();
-        int i = 0;
-        for(Map.Entry<Integer, Byte> entry:this.memory.map.entrySet()){
-            out.write(this.memory.getByte(i).toByteArray());
-            i++;
-        }
-        final byte[] hash = md.digest(out.toByteArray());
-        for (int j = 0; j < hash.length; j++) {
-            final String hex = Integer.toHexString(0xff & hash[j]);
-            if(hex.length() == 1)
-                hexString.append('0');
-            hexString.append(hex);
-        }
-        return hexString.toString();
+        return this.memory.sha256();
     }
 }
