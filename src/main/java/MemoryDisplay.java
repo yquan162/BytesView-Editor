@@ -36,7 +36,7 @@ public class MemoryDisplay {
     public String sha256() throws NoSuchAlgorithmException, MemoryAddressDoesNotExistException, IOException {
         if(this.memory == null){
             System.out.println("This display instance does not have memory loaded!");
-            return new String();
+            return "";
         }
         return this.memory.sha256();
     }

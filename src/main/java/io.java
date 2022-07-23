@@ -1,6 +1,5 @@
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class io implements Runnable{
@@ -17,7 +16,6 @@ public class io implements Runnable{
         Scanner sc = new Scanner(System.in);
         boolean verbosity = false;
         boolean matches = false;
-        int size = 0;
         System.out.println("Thread started, please initialize some memory with \"newmem\"");
         try {
             String argv = "";
@@ -134,21 +132,21 @@ public class io implements Runnable{
                     mem = null;
                 }
                 else if(argv.contains("status")){
-                    System.out.println("Display\n-----------------------");
+                    System.out.println("\nDisplay\n-----------------------");
                     System.out.println("isEmpty: " + display.isEmpty());
                     if(!display.isEmpty()){
-                        System.out.println("Memory checksum: " + display.sha256() + "\n");
+                        System.out.println("Memory checksum: " + display.sha256());
                     }
-                    System.out.println("Interactor\n-----------------------");
+                    System.out.println("\nInteractor\n-----------------------");
                     System.out.println("isEmpty: " + interactor.isEmpty());
                     if(!interactor.isEmpty()){
-                        System.out.println("Memory checksum: " + interactor.sha256() + "\n");
+                        System.out.println("Memory checksum: " + interactor.sha256());
                     }
                     if(mem != null){
-                        System.out.println("Current memory checksum: " + mem.sha256());
+                        System.out.println("\nCurrent memory checksum: " + mem.sha256());
                     }
                     else {
-                        System.out.println("There is no memory that has been initialized.\n");
+                        System.out.println("\nThere is no memory that has been initialized.\n");
                     }
 
                 }
@@ -158,7 +156,7 @@ public class io implements Runnable{
                     System.out.println("dispmem - shows contents of memory");
                     System.out.println("flush - fills mem with all zeros");
                     System.out.println("multich <addr1,addr2,addr3...> - change multiple addresses with one command");
-                    System.out.println("exit - exits the program");;
+                    System.out.println("exit - exits the program");
                     System.out.println("verbose - turns on additional information");
                     System.out.println("mute - toggle off verbosity");
                     System.out.println("ejectdisp - eject memory from the display");
@@ -192,9 +190,7 @@ public class io implements Runnable{
 
                 }
             }
-        } catch (MemorySizeInitializationException | MemoryAddressDoesNotExistException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
+        } catch (MemorySizeInitializationException | MemoryAddressDoesNotExistException | IOException e) {
             throw new RuntimeException(e);
         } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException(e);

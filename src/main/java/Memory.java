@@ -37,14 +37,14 @@ public class Memory {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         final StringBuilder hexString = new StringBuilder();
         int i = 0;
-        for(Map.Entry<Integer, Byte> entry:this.map.entrySet()){
+        for(Map.Entry<Integer, Byte> ignored :this.map.entrySet()){
             out.write(this.getByte(i).toByteArray());
             i++;
         }
         final byte[] hash = md.digest(out.toByteArray());
-        for (int j = 0; j < hash.length; j++) {
-            final String hex = Integer.toHexString(0xff & hash[j]);
-            if(hex.length() == 1)
+        for (byte b : hash) {
+            final String hex = Integer.toHexString(0xff & b);
+            if (hex.length() == 1)
                 hexString.append('0');
             hexString.append(hex);
         }

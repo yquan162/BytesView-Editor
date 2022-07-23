@@ -1,13 +1,11 @@
-import java.io.IOException;
-import java.util.Arrays;
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.ObjectOutputStream;
-import java.util.Base64;
 import java.util.zip.CRC32;
 
 public class Byte {
-    Bit b[] = new Bit[8];
-    byte bits[];
+    Bit[] b = new Bit[8];
+    byte[] bits;
 
 
     public Byte() throws IOException {
@@ -25,12 +23,12 @@ public class Byte {
         this.writeBits();
     }
     public String showByte(){
-        String bits = "";
+        StringBuilder bits = new StringBuilder();
         for(Bit bit:this.b){
-            bits += bit.valueOf();
-            bits += " ";
+            bits.append(bit.valueOf());
+            bits.append(" ");
         }
-        return bits;
+        return bits.toString();
     }
     public void fillByte(){
         for(int i = 0; i<this.b.length; i++){
@@ -52,7 +50,6 @@ public class Byte {
         CRC32 crc32 = new CRC32();
         crc32.update(this.toByteArray());
         String out = Long.toHexString(crc32.getValue());
-        crc32 = null;
         System.gc();
         return out;
     }
