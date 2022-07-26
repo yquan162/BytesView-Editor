@@ -4,7 +4,10 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Map;
 import java.util.TreeMap;
-public class Memory {
+public class Memory implements Cloneable{
+    public Object clone() throws CloneNotSupportedException{
+        return super.clone();
+    }
     TreeMap<Integer, Byte> map;
     public Memory(TreeMap<Integer, Byte> mem){
         this.map = mem;

@@ -4,7 +4,10 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Map;
 import java.io.ByteArrayOutputStream;
 
-public class MemoryDisplay {
+public class MemoryDisplay implements Cloneable{
+    public Object clone() throws CloneNotSupportedException{
+        return super.clone();
+    }
     private Memory memory;
     public MemoryDisplay(Memory mem){
         this.memory = mem;

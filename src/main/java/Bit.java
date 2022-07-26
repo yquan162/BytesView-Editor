@@ -1,6 +1,9 @@
 import java.io.Serializable;
 
-public class Bit implements Serializable {
+public class Bit implements Serializable, Cloneable {
+    public Object clone() throws CloneNotSupportedException{
+        return super.clone();
+    }
     boolean value;
     public Bit(){
         this.value = false;

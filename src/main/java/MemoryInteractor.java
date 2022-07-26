@@ -2,7 +2,10 @@ import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.util.Map;
 
-public class MemoryInteractor {
+public class MemoryInteractor implements Cloneable{
+    public Object clone() throws CloneNotSupportedException{
+        return super.clone();
+    }
     private Memory memory;
     public MemoryInteractor(Memory mem){
         this.memory = mem;

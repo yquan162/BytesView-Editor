@@ -3,7 +3,10 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.zip.CRC32;
 
-public class Byte {
+public class Byte implements Cloneable{
+    public Object clone() throws CloneNotSupportedException{
+        return super.clone();
+    }
     Bit[] b = new Bit[8];
     byte[] bits;
 
@@ -38,13 +41,12 @@ public class Byte {
     public void writeBits() throws IOException {
         this.bits = this.toByteArray();
     }
-    public byte[] toByteArray() throws IOException {
-        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        ObjectOutputStream oos = new ObjectOutputStream(bos);
-        oos.writeObject( this.b);
-        byte [] data = bos.toByteArray();
-        oos.flush();
-        return data;
+    public byte[] toByteArray() {
+        byte[] bytes = new byte[8];
+        for(int i = 0; i < this.b.length; i++){
+            bytes[i] = (byte) b[i].valueOf();
+        }
+        return bytes;
     }
     public String CRC32() throws IOException {
         CRC32 crc32 = new CRC32();
