@@ -107,8 +107,9 @@ public class io implements Runnable{
                             System.out.println("Invalid memory size! (min 1)");
                         }
                     }
-                }
-                else if(argv.contains("identdisp")){
+                } else if (argv.contains("showbytes")) {
+                    display.showBytesMemory();
+                } else if(argv.contains("identdisp")){
                     if(!display.sha256().equals("")){
                     System.out.println("Display memory checksum: "+display.sha256());
                     }

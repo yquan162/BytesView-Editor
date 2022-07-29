@@ -28,11 +28,9 @@ public class MemoryInteractor implements Cloneable{
         int bitOffset = Integer.parseInt(offset.substring(7));
         Byte bt = this.memory.getByte(byteOffset);
         if(verbose){
-            String crc = bt.CRC32();
             int state = bt.returnBit(bitOffset).valueOf();
             bt.changeBit(bitOffset, !bt.returnBit(bitOffset).boolValueOf());
             System.out.println("Bit at address 0x" + offset + " changed to " + bt.returnBit(bitOffset).valueOf() +"(was "+ state + ")");
-            System.out.println("CRC32 checksum at 0x" + offset.substring(0,7) + "0 has changed to " + bt.CRC32() + "(was " + crc+")");
             System.out.println("SHA-256 checksum of virtual memory has changed.\nType \"checksum\" to see more details.\n");
         }
         else{

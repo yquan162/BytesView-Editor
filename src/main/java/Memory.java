@@ -41,7 +41,7 @@ public class Memory implements Cloneable{
         final StringBuilder hexString = new StringBuilder();
         int i = 0;
         for(Map.Entry<Integer, Byte> ignored :this.map.entrySet()){
-            out.write(this.getByte(i).toByteArray());
+            out.write(this.getByte(i).toByte());
             i++;
         }
         final byte[] hash = md.digest(out.toByteArray());
