@@ -5,6 +5,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Map;
 import java.util.TreeMap;
 public class Memory implements Cloneable{
+    TextColor color = new TextColor();
     public Object clone() throws CloneNotSupportedException{
         return super.clone();
     }
@@ -14,7 +15,7 @@ public class Memory implements Cloneable{
     }
     public Memory(int size) throws MemorySizeInitializationException, IOException {
         if(size == 0){
-            throw new MemorySizeInitializationException("Memory size cannot be zero.");
+            throw new MemorySizeInitializationException(color.colorString("FATAL: ", "RED", false)+"Memory size cannot be zero.");
         }
         this.map = new TreeMap<Integer, Byte>();
         for(int i = 0; i<size; i++){
@@ -26,7 +27,7 @@ public class Memory implements Cloneable{
             return this.map.get(offset);
         }
         else{
-            throw new MemoryAddressDoesNotExistException("The referenced memory address does not exist.");
+            throw new MemoryAddressDoesNotExistException(color.colorString("FATAL: ", "RED", false)+"The referenced memory address does not exist.");
         }
     }
     public void changeByte(int offset, Byte newByte){

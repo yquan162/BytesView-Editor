@@ -3,6 +3,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Map;
 
 public class MemoryInteractor implements Cloneable{
+    TextColor color = new TextColor();
     public Object clone() throws CloneNotSupportedException{
         return super.clone();
     }
@@ -21,7 +22,7 @@ public class MemoryInteractor implements Cloneable{
     }
     public void changeMemory(String offset, boolean verbose) throws MemoryAddressDoesNotExistException, IOException, NoSuchAlgorithmException {
         if(this.memory == null){
-            System.out.println("This interactor instance does not have memory loaded!");
+            System.out.println(color.colorString("WARN: ", "YELLOW", false)+" This interactor instance does not have memory loaded!");
             return;
         }
         int byteOffset = Integer.parseInt(offset.substring(0,7),16 );
@@ -41,7 +42,7 @@ public class MemoryInteractor implements Cloneable{
     }
     public void flushMemory(boolean verbose) throws MemorySizeInitializationException, IOException {
         if(this.memory == null){
-            System.out.println("This display interactor does not have memory loaded!");
+            System.out.println(color.colorString("WARN: ", "YELLOW", false)+" This interactor instance does not have memory loaded!");
             return;
         }
         int i = 0;
@@ -55,7 +56,7 @@ public class MemoryInteractor implements Cloneable{
     }
     public String sha256() throws NoSuchAlgorithmException, MemoryAddressDoesNotExistException, IOException {
         if(this.memory == null){
-            System.out.println("This interactor instance does not have memory loaded!");
+            System.out.println(color.colorString("WARN: ", "YELLOW", false)+" This interactor instance does not have memory loaded!");
             return "";
         }
         return this.memory.sha256();

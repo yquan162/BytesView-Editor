@@ -4,16 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc8b144e-11c9-4f40-8717-afa9dd704caf" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/MemorySimulation_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/discord.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/discord.xml" afterDir="false" />
+    <list default="true" id="cc8b144e-11c9-4f40-8717-afa9dd704caf" name="Changes" comment="restructure bytes in memory. Implement byte viewer and bitwise viewer. TODO: change interaction system and add documentation for new functions.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Server.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/TextColor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Byte.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Byte.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Memory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Memory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MemoryDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MemoryDisplay.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MemoryInteractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MemoryInteractor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StartThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StartThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -26,6 +25,13 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -37,14 +43,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;
   }
-}]]></component>
-  <component name="RunManager">
+}</component>
+  <component name="RunManager" selected="Application.StartThread">
+    <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Server" />
+      <module name="MemorySimulation.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="StartThread" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="StartThread" />
       <module name="MemorySimulation.main" />
@@ -54,6 +67,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Server" />
         <item itemvalue="Application.StartThread" />
       </list>
     </recent_temporary>
@@ -66,8 +80,19 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1659027321612</updated>
-      <workItem from="1659027324125" duration="9930000" />
+      <workItem from="1659027324125" duration="12716000" />
+      <workItem from="1659147878288" duration="6591000" />
+      <workItem from="1659196201679" duration="52920000" />
+      <workItem from="1659910434499" duration="1618000" />
     </task>
+    <task id="LOCAL-00001" summary="restructure bytes in memory. Implement byte viewer and bitwise viewer. TODO: change interaction system and add documentation for new functions.">
+      <created>1659083842906</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1659083842906</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -83,5 +108,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="restructure bytes in memory. Implement byte viewer and bitwise viewer. TODO: change interaction system and add documentation for new functions." />
+    <option name="LAST_COMMIT_MESSAGE" value="restructure bytes in memory. Implement byte viewer and bitwise viewer. TODO: change interaction system and add documentation for new functions." />
   </component>
 </project>

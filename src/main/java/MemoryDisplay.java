@@ -1,10 +1,8 @@
 import java.io.IOException;
-import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.Map;
-import java.io.ByteArrayOutputStream;
 
 public class MemoryDisplay implements Cloneable{
+    TextColor color = new TextColor();
     public Object clone() throws CloneNotSupportedException{
         return super.clone();
     }
@@ -23,7 +21,7 @@ public class MemoryDisplay implements Cloneable{
     }
     public void showMemory(boolean verbose) throws MemoryAddressDoesNotExistException, IOException, NoSuchAlgorithmException {
         if(this.memory == null){
-            System.out.println("This display instance does not have memory loaded!");
+            System.out.println(color.colorString("WARN: ", "YELLOW", false)+" This display instance does not have memory loaded!");
             return;
         }
         System.out.println("Address       0 1 2 3 4 5 6 7");
@@ -38,7 +36,7 @@ public class MemoryDisplay implements Cloneable{
     }
     public void showBytesMemory() throws MemoryAddressDoesNotExistException {
         if(this.memory == null){
-            System.out.println("This display instance does not have memory loaded!");
+            System.out.println(color.colorString("WARN: ", "YELLOW", false)+" This display instance does not have memory loaded!");
             return;
         }
         System.out.print("Address       00  01  02  03  04  05  06  07  08  09  0a  0b  0c  0d  0e  0f");
@@ -48,11 +46,16 @@ public class MemoryDisplay implements Cloneable{
             }
             System.out.print(String.format("%02x",this.memory.getByte(i).toByte()) + "  ");
         }
+        if(this.memory.size()%16 > 0){
+            for(int j = 0; j < (16 -(this.memory.size() % 16)); j++){
+               System.out.print("??  ");
+            }
+        }
         System.out.println("\n------------------------------------------------------------------\n\n");
     }
     public String sha256() throws NoSuchAlgorithmException, MemoryAddressDoesNotExistException, IOException {
         if(this.memory == null){
-            System.out.println("This display instance does not have memory loaded!");
+            System.out.println(color.colorString("WARN: ", "YELLOW", false)+" This display instance does not have memory loaded!");
             return "";
         }
         return this.memory.sha256();
