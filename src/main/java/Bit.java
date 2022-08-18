@@ -11,6 +11,12 @@ public class Bit implements Serializable, Cloneable {
     public Bit(boolean x){
         this.value = x;
     }
+    public Bit(int x){switch (x){
+        case 0 -> this.value = false;
+        case 1 -> this.value = true;
+        default -> this.value = false;
+    }
+    }
     public int valueOf(){
         return (this.value) ? 1 : 0;
     }

@@ -1,7 +1,7 @@
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.TreeMap;
 public class Memory implements Cloneable{
@@ -12,6 +12,10 @@ public class Memory implements Cloneable{
     TreeMap<Integer, Byte> map;
     public Memory(TreeMap<Integer, Byte> mem){
         this.map = mem;
+    }
+    public Memory(byte[] b) throws IOException {
+        this.map = new TreeMap<Integer, Byte>();
+        this.fromByteArray(b);
     }
     public Memory(int size) throws MemorySizeInitializationException, IOException {
         if(size == 0){
@@ -53,5 +57,30 @@ public class Memory implements Cloneable{
             hexString.append(hex);
         }
         return hexString.toString();
+    }
+    public void toBinaryFile() throws IOException, MemoryAddressDoesNotExistException, NoSuchAlgorithmException {
+        File bin = new File(System.getProperty("user.dir")+"/memory-"+this.sha256().substring(0,8)+ ".bin");
+        System.out.println(color.colorString("INFO: ", "BLUE", false)+"Writing to memory-"+this.sha256().substring(0,8)+ ".bin");
+        bin.createNewFile();
+        FileOutputStream fos = new FileOutputStream(bin);
+        ArrayList<java.lang.Byte> bytes = new ArrayList<>();
+        int i = 0;
+        for(Map.Entry<Integer, Byte> ignored :this.map.entrySet()){
+            bytes.add(this.getByte(i).toByte());
+            i++;
+        }
+        byte[] out = new byte[bytes.size()];
+        for(int j = 0; j < bytes.size(); j++){
+            out[j] = bytes.get(j);
+        }
+        fos.write(out);
+        fos.close();
+    }
+    public void fromByteArray(byte[] b) throws IOException {
+        int i = 0;
+        for(byte bytes : b){
+            this.map.put(i, new Byte(bytes));
+            i++;
+        }
     }
 }

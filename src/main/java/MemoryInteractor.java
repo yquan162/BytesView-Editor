@@ -1,3 +1,6 @@
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.util.Map;
@@ -62,6 +65,14 @@ public class MemoryInteractor implements Cloneable{
         return this.memory.sha256();
     }
     public boolean isEmpty(){
-        return (this.memory == null) ? true : false;
+        return this.memory == null;
+    }
+    public Memory fromFile(String path) throws IOException {
+        File in = new File(System.getProperty("user.dir")+"/"+path);
+        FileInputStream input = new FileInputStream(in);
+        byte[] bytes = input.readAllBytes();
+        System.out.println(color.colorString("INFO: ", "BLUE", false)+"loaded file "+System.getProperty("user.dir")+"/"+path);
+        input.close();
+        return new Memory(bytes);
     }
 }

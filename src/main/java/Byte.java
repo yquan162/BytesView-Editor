@@ -15,6 +15,17 @@ public class Byte implements Cloneable{
         this.fillByte();
         this.writeBits();
     }
+    public Byte(byte b) throws IOException {
+        String bin = Integer.toBinaryString((b & 0xFF) + 0x100).substring(1);
+        //pad bin length
+        while(bin.length() < 8){
+            bin = "0" + bin;
+        }
+        for(int i = 0; i < bin.length(); i++){
+            this.b[i] = new Bit(Character.getNumericValue(bin.charAt(i)));
+        }
+        this.writeBits();
+    }
     public Bit[] valueOf(){
         return this.b;
     }
@@ -48,6 +59,7 @@ public class Byte implements Cloneable{
         for(Bit bit:this.b){
             bin.append(bit.valueOf());
         }
+        //twos complement smth idek
         if(bin.charAt(0) == '1'){
             val = java.lang.Byte.parseByte(bin.substring(1), 2);
             val -= 128;

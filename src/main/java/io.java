@@ -9,33 +9,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class io implements Runnable{
-    private Socket socket = null;
-    private DataInputStream in = null;
-    private DataOutputStream out = null;
     @Override
     public void run(){
         TextColor color = new TextColor();
-        try {
-            socket = new Socket("localhost", 6969);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        System.out.println(color.colorString("INFO: ", "BLUE", false)+"Connection OK");
-        try {
-            in = new DataInputStream(socket.getInputStream());
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        try {
-            out = new DataOutputStream(socket.getOutputStream());
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        try {
-            System.out.println(in.readUTF());
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
         Thread.currentThread().setUncaughtExceptionHandler(new ExceptionHandler());
         String[] commands = {"help", "chmem", "dispmem", "flush", "multich"
                 , "exit", "verbose", "mute", "ejectdisp", "ejectint"
@@ -58,8 +34,6 @@ public class io implements Runnable{
                     System.out.print(">");
                 }
                 argv = sc.nextLine().toLowerCase();
-                out.writeUTF(argv);
-                System.out.println(in.readUTF());
                 if(argv.contains("chmem")){
                     if(argv.split(" ").length == 1){
                         System.out.println(color.colorString("WARN: ", "YELLOW", false)+"Missing parameters!");
@@ -85,10 +59,7 @@ public class io implements Runnable{
                         }
                     }
                 }
-                else if(argv.contains("exit")){
-                    in.close();
-                    out.close();
-                    socket.close();
+                else if(argv.contains("exit") || argv.contains("shutdown")){
                     System.exit(0);
                 }
                 else if(argv.contains("verbose")){
@@ -168,6 +139,10 @@ public class io implements Runnable{
                     System.out.println(color.colorString("INFO: ", "BLUE", false)+"Memory has been purged\n");
                     mem = null;
                 }
+                else if(argv.contains("tobin")){
+                    mem.toBinaryFile();
+                    System.out.println(color.colorString("INFO: ", "BLUE", false)+"Saved to binary file in root dir\n");
+                }
                 else if(argv.contains("status")){
                     System.out.println(color.colorString("\nINFO: ", "BLUE", false)+"\nDisplay\n-----------------------");
                     System.out.println("isEmpty: " + display.isEmpty());
@@ -186,6 +161,11 @@ public class io implements Runnable{
                         System.out.println(color.colorString("\nWARN: ", "YELLOW", false)+"There is no memory that has been initialized.\n");
                     }
 
+                }
+                else if(argv.contains("loadfile")){
+                    String path = argv.split(" ")[1];
+                    mem = interactor.fromFile(path);
+                    System.out.println(color.colorString("\nINFO: ", "BLUE", false)+"file "+path+" loaded");
                 }
                 else if(argv.contains("help")){
                     System.out.println(color.colorString("INFO: ", "BLUE", false)+"\nhelp - shows commands");

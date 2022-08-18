@@ -4,15 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc8b144e-11c9-4f40-8717-afa9dd704caf" name="Changes" comment="restructure bytes in memory. Implement byte viewer and bitwise viewer. TODO: change interaction system and add documentation for new functions.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Server.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/TextColor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+    <list default="true" id="cc8b144e-11c9-4f40-8717-afa9dd704caf" name="Changes" comment="improved server dialogue. added colored text. added server and client.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Bit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Byte.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Byte.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Memory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Memory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MemoryDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MemoryDisplay.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MemoryInteractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MemoryInteractor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StartThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StartThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -83,7 +81,13 @@
       <workItem from="1659027324125" duration="12716000" />
       <workItem from="1659147878288" duration="6591000" />
       <workItem from="1659196201679" duration="52920000" />
-      <workItem from="1659910434499" duration="1618000" />
+      <workItem from="1659910434499" duration="13054000" />
+      <workItem from="1659977108939" duration="4087000" />
+      <workItem from="1659994510039" duration="3072000" />
+      <workItem from="1660071522251" duration="6270000" />
+      <workItem from="1660443353391" duration="1808000" />
+      <workItem from="1660706937734" duration="1243000" />
+      <workItem from="1660780319210" duration="4743000" />
     </task>
     <task id="LOCAL-00001" summary="restructure bytes in memory. Implement byte viewer and bitwise viewer. TODO: change interaction system and add documentation for new functions.">
       <created>1659083842906</created>
@@ -92,7 +96,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659083842906</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="improved server dialogue. added colored text. added server and client.">
+      <created>1659912622359</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1659912622359</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -111,6 +122,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="restructure bytes in memory. Implement byte viewer and bitwise viewer. TODO: change interaction system and add documentation for new functions." />
-    <option name="LAST_COMMIT_MESSAGE" value="restructure bytes in memory. Implement byte viewer and bitwise viewer. TODO: change interaction system and add documentation for new functions." />
+    <MESSAGE value="improved server dialogue. added colored text. added server and client." />
+    <option name="LAST_COMMIT_MESSAGE" value="improved server dialogue. added colored text. added server and client." />
   </component>
 </project>
