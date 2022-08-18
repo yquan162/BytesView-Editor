@@ -130,6 +130,7 @@ public class io implements Runnable{
                 else if(argv.contains("purge")){
                     System.out.println(color.colorString("INFO: ", "BLUE", false)+"Memory has been purged\n");
                     mem = null;
+                    System.gc();
                 }
                 else if(argv.contains("tobin")){
                     assert mem != null;
