@@ -1,8 +1,3 @@
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.util.zip.CRC32;
-
 public class Byte implements Cloneable{
     public Object clone() throws CloneNotSupportedException{
         return super.clone();
@@ -11,15 +6,15 @@ public class Byte implements Cloneable{
     byte bits;
 
 
-    public Byte() throws IOException {
+    public Byte() {
         this.fillByte();
         this.writeBits();
     }
-    public Byte(byte b) throws IOException {
-        String bin = Integer.toBinaryString((b & 0xFF) + 0x100).substring(1);
+    public Byte(byte b) {
+        StringBuilder bin = new StringBuilder(Integer.toBinaryString((b & 0xFF) + 0x100).substring(1));
         //pad bin length
         while(bin.length() < 8){
-            bin = "0" + bin;
+            bin.insert(0, "0");
         }
         for(int i = 0; i < bin.length(); i++){
             this.b[i] = new Bit(Character.getNumericValue(bin.charAt(i)));
@@ -32,7 +27,7 @@ public class Byte implements Cloneable{
     public Bit returnBit(int index){
         return this.b[index];
     }
-    public void changeBit(int index, boolean value) throws IOException {
+    public void changeBit(int index, boolean value) {
         this.b[index].assignValue(value);
         this.writeBits();
     }
@@ -44,17 +39,17 @@ public class Byte implements Cloneable{
         }
         return bits.toString();
     }
-    public void fillByte() throws IOException {
+    public void fillByte() {
         for(int i = 0; i<this.b.length; i++){
             b[i] = new Bit();
         }
         this.writeBits();
     }
-    public void writeBits() throws IOException {
+    public void writeBits() {
         this.bits = this.toByte();
     }
     public byte toByte() {
-        byte val = 0;
+        byte val;
         StringBuilder bin = new StringBuilder();
         for(Bit bit:this.b){
             bin.append(bit.valueOf());

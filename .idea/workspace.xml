@@ -1,17 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="MemorySimulation:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc8b144e-11c9-4f40-8717-afa9dd704caf" name="Changes" comment="improved server dialogue. added colored text. added server and client.">
+    <list default="true" id="cc8b144e-11c9-4f40-8717-afa9dd704caf" name="Changes" comment="Remove server dependence(experiment). Add ability to read from files.">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/MemorySimulation_jar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Bit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Bit.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Byte.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Byte.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Memory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Memory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MemoryDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MemoryDisplay.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MemoryInteractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MemoryInteractor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Server.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StartThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StartThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +41,15 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/Bit.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/Byte.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/Memory.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/MemoryInteractor.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/StartThread.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/TextColor.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/io.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -41,13 +58,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "F:/Java/out",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Application.StartThread">
     <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Server" />
@@ -62,6 +84,27 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="MemorySimulation [:StartThread.main()]" type="GradleRunConfiguration" factoryName="Gradle">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":StartThread.main()" />
+          </list>
+        </option>
+        <option name="vmOptions" value="-Xmx65536m -Xms65536m" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
@@ -87,7 +130,9 @@
       <workItem from="1660071522251" duration="6270000" />
       <workItem from="1660443353391" duration="1808000" />
       <workItem from="1660706937734" duration="1243000" />
-      <workItem from="1660780319210" duration="4743000" />
+      <workItem from="1660780319210" duration="7225000" />
+      <workItem from="1660787608636" duration="333000" />
+      <workItem from="1660787953689" duration="5532000" />
     </task>
     <task id="LOCAL-00001" summary="restructure bytes in memory. Implement byte viewer and bitwise viewer. TODO: change interaction system and add documentation for new functions.">
       <created>1659083842906</created>
@@ -103,7 +148,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659912622359</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Remove server dependence(experiment). Add ability to read from files.">
+      <created>1660785173887</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1660785173887</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -123,6 +175,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="restructure bytes in memory. Implement byte viewer and bitwise viewer. TODO: change interaction system and add documentation for new functions." />
     <MESSAGE value="improved server dialogue. added colored text. added server and client." />
-    <option name="LAST_COMMIT_MESSAGE" value="improved server dialogue. added colored text. added server and client." />
+    <MESSAGE value="Remove server dependence(experiment). Add ability to read from files." />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove server dependence(experiment). Add ability to read from files." />
   </component>
 </project>

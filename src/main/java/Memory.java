@@ -14,14 +14,14 @@ public class Memory implements Cloneable{
         this.map = mem;
     }
     public Memory(byte[] b) throws IOException {
-        this.map = new TreeMap<Integer, Byte>();
+        this.map = new TreeMap<>();
         this.fromByteArray(b);
     }
     public Memory(int size) throws MemorySizeInitializationException, IOException {
         if(size == 0){
             throw new MemorySizeInitializationException(color.colorString("FATAL: ", "RED", false)+"Memory size cannot be zero.");
         }
-        this.map = new TreeMap<Integer, Byte>();
+        this.map = new TreeMap<>();
         for(int i = 0; i<size; i++){
             this.map.put(i, new Byte());
         }
@@ -76,7 +76,7 @@ public class Memory implements Cloneable{
         fos.write(out);
         fos.close();
     }
-    public void fromByteArray(byte[] b) throws IOException {
+    public void fromByteArray(byte[] b) {
         int i = 0;
         for(byte bytes : b){
             this.map.put(i, new Byte(bytes));

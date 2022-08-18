@@ -1,11 +1,5 @@
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.EOFException;
 import java.io.IOException;
-import java.net.Socket;
-import java.nio.charset.StandardCharsets;
 import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class io implements Runnable{
@@ -25,7 +19,7 @@ public class io implements Runnable{
         boolean matches = false;
         System.out.println(color.colorString("INFO: ", "BLUE", false)+"Thread started, please initialize some memory with \"newmem\"");
         try {
-            String argv = "";
+            String argv;
             while(true){
                 if(verbosity){
                     System.out.print("<-v>");
@@ -104,7 +98,6 @@ public class io implements Runnable{
                                 display.loadMemory(mem);
                                 interactor.loadMemory(mem);
                                 System.out.println(color.colorString("INFO: ", "BLUE", false)+"Memory has been loaded into display and interactor\n");
-                                display.showBytesMemory();
                             }
                             else{
                                 System.out.println(color.colorString("WARN: ", "YELLOW", false)+"Display and Interactor have not been switched to new memory.");
@@ -133,13 +126,13 @@ public class io implements Runnable{
                     display.loadMemory(mem);
                     interactor.loadMemory(mem);
                     System.out.println(color.colorString("INFO: ", "BLUE", false)+"Memory has been loaded into display and interactor\n");
-                    display.showBytesMemory();
                 }
                 else if(argv.contains("purge")){
                     System.out.println(color.colorString("INFO: ", "BLUE", false)+"Memory has been purged\n");
                     mem = null;
                 }
                 else if(argv.contains("tobin")){
+                    assert mem != null;
                     mem.toBinaryFile();
                     System.out.println(color.colorString("INFO: ", "BLUE", false)+"Saved to binary file in root dir\n");
                 }
@@ -207,9 +200,8 @@ public class io implements Runnable{
 
                 }
             }
-        } catch (MemorySizeInitializationException | MemoryAddressDoesNotExistException | IOException e) {
-            throw new RuntimeException(e);
-        } catch (NoSuchAlgorithmException e) {
+        } catch (MemorySizeInitializationException | MemoryAddressDoesNotExistException | IOException |
+                 NoSuchAlgorithmException e) {
             throw new RuntimeException(e);
         }
     }

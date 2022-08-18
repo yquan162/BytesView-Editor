@@ -39,7 +39,7 @@ public class MemoryDisplay implements Cloneable{
             System.out.println(color.colorString("WARN: ", "YELLOW", false)+" This display instance does not have memory loaded!");
             return;
         }
-        System.out.print("Address       00  01  02  03  04  05  06  07  08  09  0a  0b  0c  0d  0e  0f");
+        System.out.print("Offset        00  01  02  03  04  05  06  07  08  09  0a  0b  0c  0d  0e  0f");
         for(int i = 0; i < this.memory.size(); i++){
             if(i%16 == 0){
                 System.out.print("\n"+String.format("0x%07x0", i/16) + "    ");
@@ -61,6 +61,6 @@ public class MemoryDisplay implements Cloneable{
         return this.memory.sha256();
     }
     public boolean isEmpty(){
-        return (this.memory == null) ? true : false;
+        return this.memory == null;
     }
 }
