@@ -154,6 +154,7 @@ public class io implements Runnable{
                     else {
                         System.out.println(color.colorString("\nWARN: ", "YELLOW", false)+"There is no memory that has been initialized.\n");
                     }
+                    System.out.println("Shannon Entropy: " + display.entropy(mem.toByteArray()));
 
                 }
                 else if(argv.contains("loadfile")){

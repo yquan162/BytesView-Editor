@@ -83,4 +83,12 @@ public class Memory implements Cloneable{
             i++;
         }
     }
+    public byte[] toByteArray(){
+        byte[] bytes = new byte[this.map.size()];
+        for(int i = 0; i < this.map.size(); i++){
+            bytes[i] = this.map.get(i).toByte();
+        }
+        return bytes;
+    }
+
 }

@@ -63,4 +63,27 @@ public class MemoryDisplay implements Cloneable{
     public boolean isEmpty(){
         return this.memory == null;
     }
+    public static double entropy(byte[] input) {
+        if (input.length == 0) {
+            return 0.0;
+        }
+
+        /* Total up the occurrences of each byte */
+        int[] charCounts = new int[256];
+        for (byte b : input) {
+            charCounts[b & 0xFF]++;
+        }
+
+        double entropy = 0.0;
+        for (int i = 0; i < 256; ++i) {
+            if (charCounts[i] == 0.0) {
+                continue;
+            }
+
+            double freq = (double) charCounts[i] / input.length;
+            entropy -= freq * (Math.log(freq) / Math.log(2));
+        }
+
+        return entropy;
+    }
 }
