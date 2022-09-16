@@ -137,6 +137,11 @@ public class io implements Runnable{
                     mem.toBinaryFile();
                     System.out.println(color.colorString("INFO: ", "BLUE", false)+"Saved to binary file in root dir\n");
                 }
+                else if(argv.contains("totext")){
+                    assert mem != null;
+                    interactor.writeBytesToFile();
+                    System.out.println(color.colorString("INFO: ", "BLUE", false)+"Saved to text file in root dir\n");
+                }
                 else if(argv.contains("status")){
                     System.out.println(color.colorString("\nINFO: ", "BLUE", false)+"\nDisplay\n-----------------------");
                     System.out.println("isEmpty: " + display.isEmpty());
