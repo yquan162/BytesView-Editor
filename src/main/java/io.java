@@ -165,7 +165,9 @@ public class io implements Runnable{
                 else if(argv.contains("loadfile")){
                     String path = argv.split(" ")[1];
                     mem = interactor.fromFile(path);
-                    System.out.println(color.colorString("\nINFO: ", "BLUE", false)+"file "+path+" loaded");
+                    if(mem != null){
+                        System.out.println(color.colorString("\nINFO: ", "BLUE", false)+"file "+path+" loaded");
+                    }
                 }
                 else if(argv.contains("help")){
                     System.out.println(color.colorString("INFO: ", "BLUE", false)+"\nhelp - shows commands");

@@ -76,31 +76,60 @@ public class MemoryInteractor implements Cloneable {
 
     public Memory fromFile(String path) throws IOException {
         File in = new File(System.getProperty("user.dir") + "/" + path);
-        FileInputStream input = new FileInputStream(in);
-        byte[] bytes = input.readAllBytes();
-        System.out.println(color.colorString("INFO: ", "BLUE", false) + "loaded file " + System.getProperty("user.dir") + "/" + path);
-        input.close();
-        return new Memory(bytes);
+        if(in.exists()){
+            FileInputStream input = new FileInputStream(in);
+            byte[] bytes = input.readAllBytes();
+            System.out.println(color.colorString("INFO: ", "BLUE", false) + "loaded file " + System.getProperty("user.dir") + "/" + path);
+            input.close();
+            return new Memory(bytes);
+        }
+        else{
+            System.out.println(color.colorString("WARN: ", "YELLOW", false) + "File does not exist.");
+            return null;
+        }
     }
     public void writeBytesToFile() throws MemoryAddressDoesNotExistException, NoSuchAlgorithmException, IOException {
         if(this.memory == null){
             System.out.println(color.colorString("WARN: ", "YELLOW", false)+" This display instance does not have memory loaded!");
             return;
         }
+        int remainder = this.memory.size() % 16;
+        byte[] textdata = new byte[this.memory.size()];
         File txt = new File(System.getProperty("user.dir")+"/memory-"+this.memory.sha256().substring(0,8)+ ".txt");
         System.out.println(color.colorString("INFO: ", "BLUE", false)+"Writing to memory-"+this.memory.sha256().substring(0,8)+ ".txt");
         txt.createNewFile();
         BufferedWriter bw = new BufferedWriter(new FileWriter(txt));
-        bw.write("Offset        00  01  02  03  04  05  06  07  08  09  0a  0b  0c  0d  0e  0f");
+        bw.write("Offset        00  01  02  03  04  05  06  07  08  09  0a  0b  0c  0d  0e  0f  Decoded Text");
         for(int i = 0; i < this.memory.size(); i++){
             if(i%16 == 0){
+                if(i != 0){
+                    for(int j = i - 16; j < i; j++){
+                        if(textdata[j] < 32 || textdata[j] > 126)
+                        {
+                            bw.write(".");
+                        }
+                        else{
+                            bw.write((char)textdata[j]);
+                        }
+                    }
+                }
                 bw.write("\n"+String.format("0x%07x0", i/16) + "    ");
             }
+            textdata[i] = this.memory.getByte(i).toByte();
             bw.write(String.format("%02x",this.memory.getByte(i).toByte()) + "  ");
         }
         if(this.memory.size()%16 > 0){
             for(int j = 0; j < (16 -(this.memory.size() % 16)); j++){
                 bw.write("??  ");
+            }
+            for(int k = 0; k < remainder; k++){
+                if(textdata[k] < 32 || textdata[k] > 126)
+                {
+                    bw.write(".");
+                }
+                else{
+                    bw.write((char)textdata[(this.memory.size() - remainder)+k]);
+                }
             }
         }
         bw.write("\n------------------------------------------------------------------\n\n");
