@@ -1,4 +1,4 @@
-# MemorySimulation
+# BytesView-Editor
 ## super outdated stuff
 The purpose of this project is to simulate the essence of how memory works. As for functions such as read-only or random access, those have yet to be implemented. 
 As of now, only initialization, modules, and interfaces have been developed. A simple command line interface is currently in use.
@@ -20,6 +20,8 @@ As of now, only initialization, modules, and interfaces have been developed. A s
 **newmem <size>- replaces the instance of memory with a new one**
 
 put any folders to be read into the root dir of where the jvm was invoked. im too lazy to add a FileDialog implementation.
+
+so originally this was to help me understand how data structures and manipulation on the bits and bytes level worked. everything has a class and therefore is super memory inefficient. loading a small file of a few MB will cost you like 10 gigs of ram space.
 
 theres stuff like loadmem that isnt documented and theres also gonna be a new way to edit bytes.
 its gonna be a bootleg HxD clone one day lmao.
