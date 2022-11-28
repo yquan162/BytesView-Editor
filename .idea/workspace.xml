@@ -9,12 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc8b144e-11c9-4f40-8717-afa9dd704caf" name="Changes" comment="func to write text of bytes">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MemoryDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MemoryDisplay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MemoryInteractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MemoryInteractor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/io.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io.java" afterDir="false" />
-    </list>
+    <list default="true" id="cc8b144e-11c9-4f40-8717-afa9dd704caf" name="Changes" comment="view and totext includes decoded ascii" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -137,7 +132,7 @@
       <workItem from="1663877929925" duration="9000" />
       <workItem from="1667618510341" duration="921000" />
       <workItem from="1667659506191" duration="10000" />
-      <workItem from="1669598288668" duration="2901000" />
+      <workItem from="1669598288668" duration="3347000" />
     </task>
     <task id="LOCAL-00001" summary="restructure bytes in memory. Implement byte viewer and bitwise viewer. TODO: change interaction system and add documentation for new functions.">
       <created>1659083842906</created>
@@ -188,7 +183,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663289264838</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="view and totext includes decoded ascii">
+      <created>1669601640047</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1669601640047</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -212,6 +214,7 @@
     <MESSAGE value="Cleanup and refactor." />
     <MESSAGE value="&quot;purge&quot; now invokes System.gc() so program frees memory after loading files." />
     <MESSAGE value="func to write text of bytes" />
-    <option name="LAST_COMMIT_MESSAGE" value="func to write text of bytes" />
+    <MESSAGE value="view and totext includes decoded ascii" />
+    <option name="LAST_COMMIT_MESSAGE" value="view and totext includes decoded ascii" />
   </component>
 </project>
